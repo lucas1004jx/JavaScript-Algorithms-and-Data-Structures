@@ -45,6 +45,21 @@ class SingleLinkedList{
         this.length--;
         return currentNode;
     }
+
+    shift(){
+        if(!this.head) return undefined;
+        if(this.length === 1) {
+            const head = this.head;
+            this.head = null;
+            this.tail = null;
+            this.length--;
+            return head;
+        }
+        const currentHead = this.head;
+        this.head = this.head.next;
+        this.length--;
+        return currentHead;
+    }
 }
 
 const list = new SingleLinkedList();
@@ -52,8 +67,12 @@ list.push('hi');
 list.push('there');
 list.push('lucas');
 console.log('list-->',list );
-list.pop();
-list.pop();
-list.pop();
 
-console.log('list-->',list );
+// list.pop();
+// list.pop();
+// list.pop();
+//  console.log('list-->',list );
+
+const shiftItem = list.shift();
+console.log('shift item--->',shiftItem);
+console.log('list-->',list);
