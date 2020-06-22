@@ -60,19 +60,36 @@ class SingleLinkedList{
         this.length--;
         return currentHead;
     }
+
+    unshift(val){
+        const newNode = new Node(val);
+        if(!this.head){
+            this.head = newNode;
+            this.tail = newNode;
+        }else{
+        const currentHead = this.head;
+        this.head = newNode;
+        this.head.next = currentHead;
+        }
+        this.length++;
+        return this;
+    }
 }
 
 const list = new SingleLinkedList();
-list.push('hi');
-list.push('there');
-list.push('lucas');
-console.log('list-->',list );
+// list.push('hi');
+// list.push('there');
+// list.push('lucas');
+// console.log('list-->',list );
 
 // list.pop();
 // list.pop();
 // list.pop();
 //  console.log('list-->',list );
 
-const shiftItem = list.shift();
-console.log('shift item--->',shiftItem);
-console.log('list-->',list);
+// const shiftItem = list.shift();
+// console.log('shift item--->',shiftItem);
+// console.log('list-->',list);
+
+list.unshift('Hello');
+console.log('list-->',list );
