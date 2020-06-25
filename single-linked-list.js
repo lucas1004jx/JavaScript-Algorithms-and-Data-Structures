@@ -74,12 +74,30 @@ class SingleLinkedList{
         this.length++;
         return this;
     }
+
+    get(index){
+        if(index < 0 || index >= this.length) return null;
+        let count = 0;
+        let current = this.head;
+        while(count < index){
+            current = current.next;
+            count++;
+        }
+        return current;
+    }
+
+    set(index,val){
+        const node= this.get(index);
+        if(!node) return false;
+        node.val= val;
+        return true;
+    }
 }
 
 const list = new SingleLinkedList();
-// list.push('hi');
-// list.push('there');
-// list.push('lucas');
+list.push('hi');
+list.push('there');
+list.push('lucas');
 // console.log('list-->',list );
 
 // list.pop();
@@ -91,5 +109,8 @@ const list = new SingleLinkedList();
 // console.log('shift item--->',shiftItem);
 // console.log('list-->',list);
 
-list.unshift('Hello');
+//list.unshift('Hello');
 console.log('list-->',list );
+
+ list.set(2,'jose');
+console.log('list-->',list);
