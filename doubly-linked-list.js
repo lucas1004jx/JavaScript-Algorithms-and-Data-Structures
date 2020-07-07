@@ -56,6 +56,21 @@ class DoublyLinkedList {
         this.length--;
         return removedNode;
     }
+
+      unshift(val){
+        const newNode = new Node(val);
+        if(!this.head){
+            this.head = newNode;
+             this.tail = newNode;
+        }else{
+            const oldHead = this.head;
+            this.head = newNode;
+            oldHead.prev = newNode;
+            newNode.next = oldHead;
+        }
+        this.length++;
+        return this;
+    }
 }
 
 const list = new DoublyLinkedList();
