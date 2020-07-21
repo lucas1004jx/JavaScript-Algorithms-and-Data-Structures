@@ -1,12 +1,3 @@
-
-class Node {
-    constructor(value){
-        this.value = value;
-        this.left = null;
-        this.right = null;
-    }
-}
-
 class BinarySearchTree {
     constructor(){
         this.root = null;
@@ -44,10 +35,11 @@ class BinarySearchTree {
 
         const checkValue = (val, node,position) => {
             if(!node[position]) return false;
+            
             if(val > node[position].value){
-                checkValue(val, node[position],'right');
+                return checkValue(val, node[position],'right');
             }else if(val < node[position].value){
-                checkValue(val, node[position],'left');
+                return checkValue(val, node[position],'left');
             }else{
                 return true;
             }
@@ -63,10 +55,20 @@ class BinarySearchTree {
     }
 }
 
-
+class Node {
+    constructor(value){
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
 
 
 const tree = new BinarySearchTree();
 tree.root = new Node(10);
 //tree.root.right = new Node(15);
 //tree.root.left = new Node(8);
+tree.insert(21);
+tree.insert(51);
+tree.insert(14);
+tree.insert(11);
