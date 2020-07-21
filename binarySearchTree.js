@@ -61,6 +61,24 @@ class BinarySearchTree {
             return true;
         }
     }
+
+  
+    BFS(){
+        const queue = [];
+        const visited = [];
+        if(!this.root) return visited;
+        queue.push(this.root);
+       
+            while(queue.length > 0){
+                const node = queue.shift();
+                visited.push(node.value);
+                if(node.left) queue.push(node.left);
+                if(node.right)queue.push(node.right);
+            }
+
+        return visited;
+        
+    }
 }
 
 
@@ -70,3 +88,8 @@ const tree = new BinarySearchTree();
 tree.root = new Node(10);
 //tree.root.right = new Node(15);
 //tree.root.left = new Node(8);
+tree.insert(6);
+tree.insert(15);
+tree.insert(3);
+tree.insert(8);
+tree.insert(20);
