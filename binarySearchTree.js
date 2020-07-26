@@ -101,8 +101,20 @@ class BinarySearchTree {
             if(node.right)traverse(node.right);
             visited.push(node.value);
 
-        }
+        };
 
+        traverse(this.root);
+        return visited;
+    }
+
+    DFS_InOrder(){
+        const visited = [];
+        if(!this.root) return visited;
+        const traverse = (node) => {
+            if(node.left) traverse(node.left);
+            visited.push(node.value);
+            if(node.right) traverse(node.right);
+        };
         traverse(this.root);
         return visited;
     }
